@@ -1,14 +1,34 @@
 <template>
-  <div id="nav">
+  <div id="nav" class="shadow-md mb-4">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/posts">Post</router-link> |
+    <router-link to="/schedules">Schedule</router-link>
   </div>
   <router-view/>
 </template>
 
+<script>
+export default {
+  computed:{
+    colorCode:
+    {
+      get(){ 
+        return this.$store.state.colorCode
+      },
+      set(newValue)
+      {
+         this.$store.dispatch('colorCode', newValue)
+      }
+    },
+  },
+
+}
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
